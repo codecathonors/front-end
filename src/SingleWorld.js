@@ -5,7 +5,10 @@ function SingleWorld ( {world}) {
 
 
     return (
-        <h1>{world.name_of_world}</h1>
+        <div>
+            <h1>{world.name_of_world}</h1>
+            <h3>{world.discovered_year}</h3>
+        </div>
     )
 }
 
