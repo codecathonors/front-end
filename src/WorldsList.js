@@ -1,9 +1,10 @@
 import React from 'react'
+import SingleWorld from './SingleWorld'
 // import World from './World'
 // import AddWorld from './AddWorld.js'
 
-function WorldsList({ wrld }) {
-  console.log(wrld)
+function WorldsList({ worlds }) {
+  console.log(worlds)
 
 
   // const onDeleteReview = (id) => {
@@ -13,10 +14,10 @@ function WorldsList({ wrld }) {
   return (
     <>
         <h1>this is galaxy page</h1>
-      {/* {worlds.map((world) => (
-        <World key={world.id} world={world} />
+      <p>{worlds.map((world) => (
+        <SingleWorld key={world.id} world={world} />
       ))}
-      <AddWorld handleNewWorld={handleNewWorld} /> */}
+      </p>
     </>
   )
 }
