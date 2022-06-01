@@ -11,13 +11,14 @@ function WorldsList({ worlds }) {
   // }
 
   return (
-    <>
+    <div>
         <h1>List of Worlds</h1>
-        <p>{worlds.map((world) => (
+        <h2>{worlds.map((world) => (
          <SingleWorld key={world.id} world={world} />
         ))}
-        </p>
-    </>
+        </h2>
+        <button >Add New World</button>
+    </div>
   )
 }
 
