@@ -4,7 +4,6 @@ import SingleWorld from './SingleWorld'
 // import AddWorld from './AddWorld.js'
 
 function WorldsList({ worlds }) {
-  console.log(worlds)
 
 
   // const onDeleteReview = (id) => {
@@ -13,11 +12,11 @@ function WorldsList({ worlds }) {
 
   return (
     <>
-        <h1>this is galaxy page</h1>
-      <p>{worlds.map((world) => (
-        <SingleWorld key={world.id} world={world} />
-      ))}
-      </p>
+        <h1>List of Worlds</h1>
+        <p>{worlds.map((world) => (
+         <SingleWorld key={world.id} world={world} />
+        ))}
+        </p>
     </>
   )
 }

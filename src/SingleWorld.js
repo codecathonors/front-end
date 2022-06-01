@@ -6,8 +6,8 @@ function SingleWorld ( {world}) {
 
     return (
         <div>
-            <h1>{world.name_of_world}</h1>
-            <h3>{world.discovered_year}</h3>
+            <h2>Name of World: {world.name_of_world}</h2>
+            <h5>Year Discovered: {world.discovered_year}</h5>
         </div>
     )
 }
