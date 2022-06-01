@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect} from 'react';
+
+import { Routes, Route } from 'react-router-dom';
+
+import WorldsList from "./WorldsList";
+import Galaxy from "./Galaxy";
 
 function App() {
+  const [worlds, setWorlds] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:9292/worlds/')
+      .then(resp => resp.json())
+      .then(data => setWorlds(data))
+  }, [])
+
+  // const handleWorldChange = (e) => {
+  //   setNewWorld({name_of_world: e.target.value, discovered_year: e.target.value, galaxy_id: e.target.value})
+  // }
+
+  // const handleNewWorld = (newWorld) => {
+  //   setWorlds([...worlds, newWorld])
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+        <Routes>
+
+        <Route 
+          path="/"
+          element={<Galaxy />}
+        />
+
+        <Route 
+          path="/worlds/"
+          element={<WorldsList wrld={worlds}/>}
+        />
+        
+        </Routes>
+      </div>
+  )
 }
 
-export default App;
+export default App
