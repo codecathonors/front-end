@@ -5,7 +5,7 @@ function SingleWorld ( {world}) {
 
 
     return (
-        <h1>i'm single world</h1>
+        <h1>{world.name_of_world}</h1>
     )
 }
 

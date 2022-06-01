@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:9292/worlds/')
       .then(resp => resp.json())
-      .then(data => setWorlds(data))
+      .then(worlds => setWorlds(worlds))
   }, [])
 
   // const handleWorldChange = (e) => {
@@ -33,7 +33,7 @@ function App() {
 
         <Route 
           path="/worlds/"
-          element={<WorldsList wrld={worlds}/>}
+          element={<WorldsList worlds={worlds}/>}
         />
         
         </Routes>
