@@ -43,13 +43,13 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
                 onUpdatedRegion(updatedRegion);
             });
 
-
-    function refreshPage() {
-        window.location.reload(false);
     }
+    // function refreshPage() {
+    //     window.location.reload(false);
+    // }
 
     return (
-        <>
+        <div>
             <div class="text-detail">
                 <br></br>
                 {/* <h3>Name of Region:</h3> */}
@@ -94,8 +94,8 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
             <br></br>
             <br></br>
             <br></br>
-        </>
+        </div>
     )
-}
 
+}
 export default SingleRegion

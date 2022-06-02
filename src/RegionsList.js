@@ -19,7 +19,7 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
   }
 
   return (
-    <div>
+    <div >
       <br></br>
       <br></br>
       <br></br>
@@ -39,9 +39,9 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
         <SingleRegion key={region.id} region={region} filteredDeletedRegion={filteredDeletedRegion} onUpdatedRegion={onUpdatedRegion} />
       ))}
       </h2>
-      <br></br>
 
-      <button class="redirect-galaxy" onClick={handleClickGalaxy} type="galaxy">☄️ 🔥 Restart this Galaxy 🔥 ☄️</button>
+      <br></br>
+      <button class="redirect-galaxy" onClick={handleClickGalaxy}>☄️ 🔥 Restart this Galaxy 🔥 ☄️</button>
       <br></br>
       <br></br>
       <br></br>
