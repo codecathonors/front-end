@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 function SingleWorld ( { world, filteredDeletedWorld, onUpdatedWorld }) {
 
-    const [name, setName] = useState("");
-    const [year, setYear] = useState(0);
+    const [name, setName] = useState(world.name_of_world);
+    const [year, setYear] = useState(world.discovered_year);
     const [editWorld, setEditWorld] = useState("");
 
     const handleDelete = () => {
