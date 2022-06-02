@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
-    const [name, setName] = useState("");
-    const [chief, setChief] = useState("");
-    const [weather_person, setWeatherPerson] = useState("");
-    const [prominent_species, setProminentSpecies] = useState("");
-    const [population, setPopulation] = useState("");
-    const [world_id, setWorldId] = useState("");
-    const [industrialized, setIndustrialized] = useState("");
+    const [name, setName] = useState(region.name);
+    const [chief, setChief] = useState(region.chief);
+    const [weather_person, setWeatherPerson] = useState(region.weather_person);
+    const [prominent_species, setProminentSpecies] = useState(region.prominent_species);
+    const [population, setPopulation] = useState(region.population);
+    const [world_id, setWorldId] = useState(region.world_id);
+    const [industrialized, setIndustrialized] = useState(region.industrialized);
     const [editRegion, setEditRegion] = useState("");
 
     const handleDelete = () => {
