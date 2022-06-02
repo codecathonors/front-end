@@ -1,7 +1,5 @@
-import React, { useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import WorldsList from "./WorldsList";
 import Galaxy from "./Galaxy";
 
@@ -28,26 +26,26 @@ function App() {
   }
 
   return (
-      <div>
-        <Routes>
+    <div>
+      <Routes>
 
-        <Route 
+        <Route
           path="/"
           element={<Galaxy />}
         />
 
-        <Route 
+        <Route
           path="/worlds/"
-          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld}/>}
+          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld} />}
         />
 
         {/* <Route 
           path="/worlds/"
           element={<WorldsList worlds={worlds}/>}
         /> */}
-        
-        </Routes>
-      </div>
+
+      </Routes>
+    </div>
   )
 }
 
