@@ -46,6 +46,17 @@ function App() {
     setWorlds(newUpdatedWorld)
   }
 
+  const onUpdatedRegion = (updatedRegion) => {
+    const newUpdatedRegion = (region) => {
+      if (region.id === updatedRegion.id){
+        return updatedRegion
+      } else {
+        return region
+      }
+    }
+    setRegions(newUpdatedRegion)
+  }
+
   const filteredDeletedRegion = (id) => {
     setRegions(regions.filter(region => region.id !== id))
   }
@@ -66,7 +77,7 @@ function App() {
 
         <Route
           path="/regions/"
-          element={<RegionsList regions={regions} filteredDeletedRegion={filteredDeletedRegion} handleNewRegion={handleNewRegion} />}
+          element={<RegionsList regions={regions} filteredDeletedRegion={filteredDeletedRegion} handleNewRegion={handleNewRegion} onUpdatedRegion={onUpdatedRegion} />}
         />
 
       </Routes>
