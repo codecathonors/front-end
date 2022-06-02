@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
     const [name, setName] = useState(region.name);
     const [chief, setChief] = useState(region.chief);
@@ -10,11 +11,12 @@ function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
     const [industrialized, setIndustrialized] = useState(region.industrialized);
     const [editRegion, setEditRegion] = useState("");
 
+
     const handleDelete = () => {
         fetch(`http://localhost:9292/regions/${region.id}`, {
-            method:'DELETE',
-        }).then(res=>res.json())
-        .then(json=>console.log(json));
+            method: 'DELETE',
+        }).then(res => res.json())
+            .then(json => console.log(json));
         filteredDeletedRegion(region.id)
     }
 
@@ -43,6 +45,8 @@ function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
 
     return (
         <>
+
+            <div class="text-detail">
             {/* <h3>Name of Region:</h3> */}
             <p>Name of Region: {region.name}</p>
             <p>Area Chief: {region.chief}</p>
@@ -52,11 +56,14 @@ function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
             <p>World ID: {region.world_id}</p>
             {/* <p>Industrialized: {region.industrialized}</p> */}
             <p>Industrialized: { String(region.industrialized)}</p>
-
+            <br></br>
+            </div>
 
             <button onClick={handleDelete}> Delete Region </button>
             <form onSubmit={handleUpdate}>
-                <button type='submit'> Update Region </button>
+                <button class="delete-bttn" type='submit'> Update Region </button>
+                <br></br>
+                <br></br>
                 <br></br>
                 <label>
                     Name of Region:
