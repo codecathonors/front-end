@@ -56,11 +56,12 @@ function AddWorld({ handleNewWorld }) {
                     <input class="input-galaxy-world" type="text" name="GalaxyId" onChange={e => setGalaxyId(e.target.value)} value={galaxy_id} />
 
                 </label>
-                <button type="submit">Submit</button>
+                <button class="submit-new-world" type="submit">Submit</button>
             </form>
             <br></br>
             <br></br>
-            <button onClick={handleClick} type="regions">Move into Regions</button>
+            <button class="redirect-regions" onClick={handleClick} type="regions">🚀 Take me to Regions 🚀</button>
+            <br></br>
         </div>
     )
 

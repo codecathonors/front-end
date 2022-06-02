@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
+function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
     const [name, setName] = useState(region.name);
     const [chief, setChief] = useState(region.chief);
     const [weather_person, setWeatherPerson] = useState(region.weather_person);
@@ -32,56 +32,67 @@ function SingleRegion ( { region, filteredDeletedRegion, onUpdatedRegion }) {
             industrialized: industrialized
         }
         fetch(`http://localhost:9292/regions/${region.id}`, {
-            method:'PATCH',
-            headers: {'Content-type': 'application/json'},
+            method: 'PATCH',
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(
-               updatedRegion
+                updatedRegion
             )
         }).then(resp => resp.json())
-        .then(updatedRegion => {setEditRegion(updatedRegion);
-        onUpdatedRegion(updatedRegion);});
+            .then(updatedRegion => {
+                setEditRegion(updatedRegion);
+                onUpdatedRegion(updatedRegion);
+            });
 
     }
 
+
+
+
     return (
         <>
-
             <div class="text-detail">
-            {/* <h3>Name of Region:</h3> */}
-            <p>Name of Region: {region.name}</p>
-            <p>Area Chief: {region.chief}</p>
-            <p>Weather Person: {region.weather_person}</p>
-            <p>Prominent Species:{region.prominent_species}</p>
-            <p>Population: {region.population}</p>
-            <p>World ID: {region.world_id}</p>
-            {/* <p>Industrialized: {region.industrialized}</p> */}
-            <p>Industrialized: { String(region.industrialized)}</p>
-            <br></br>
+                <br></br>
+                {/* <h3>Name of Region:</h3> */}
+                <p>Name of Region: {region.name}</p>
+                <p>Area Chief: {region.chief}</p>
+                <p>Weather Person: {region.weather_person}</p>
+                <p>Prominent Species:{region.prominent_species}</p>
+                <p>Population: {region.population}</p>
+                <p>World ID: {region.world_id}</p>
+                {/* <p>Industrialized: {region.industrialized}</p> */}
+                <p>Industrialized: {String(region.industrialized)}</p>
+                <br></br>
             </div>
-
-            <button onClick={handleDelete}> Delete Region </button>
-            <form onSubmit={handleUpdate}>
-                <button class="delete-bttn" type='submit'> Update Region </button>
-                <br></br>
-                <br></br>
-                <br></br>
-                <label>
-                    Name of Region:
-                    <input type="text" name="nameOfRegion" onChange={e => setName(e.target.value)} value={name}/>
-                    Chief:
-                    <input type="text" name="chiefedit" onChange={e => setChief(e.target.value)} value={chief}/>
-                    Weather Person:
-                    <input type="text" name="weatherPerson" onChange={e => setWeatherPerson(e.target.value)} value={weather_person}/>
-                    Prominent Species:
-                    <input type="text" name="prominentspecies" onChange={e => setProminentSpecies(e.target.value)} value={prominent_species}/>
-                    Population:
-                    <input type="text" name="population" onChange={e => setPopulation(e.target.value)} value={population}/>
-                    World ID:
-                    <input type="text" name="worldID" onChange={e => setWorldId(e.target.value)} value={world_id}/>
-                    Industrialized
-                    <input type="text" name="industrialized" onChange={e => setIndustrialized(e.target.value)} value={industrialized}/>
-                </label>
-            </form>
+            <div class="form-region-update">
+                <form onSubmit={handleUpdate}>
+                    <label>
+                        Name of Region:
+                        <input class="region-name-update" type="text" name="nameOfRegion" onChange={e => setName(e.target.value)} value={name} />
+                        Chief:
+                        <input class="region-chief-update" type="text" name="chiefedit" onChange={e => setChief(e.target.value)} value={chief} />
+                        Weather Person:
+                        <input class="region-person-update" type="text" name="weatherPerson" onChange={e => setWeatherPerson(e.target.value)} value={weather_person} />
+                        <br></br>
+                        <br></br>
+                        Species:
+                        <input class="region-species-update" type="text" name="prominentspecies" onChange={e => setProminentSpecies(e.target.value)} value={prominent_species} />
+                        Population:
+                        <input class="region-pop-update" type="text" name="population" onChange={e => setPopulation(e.target.value)} value={population} />
+                        <br></br>
+                        <br></br>
+                        World ID:
+                        <input class="region-world-update" type="text" name="worldID" onChange={e => setWorldId(e.target.value)} value={world_id} />
+                        Industrialized
+                        <input class="region-indus-update" type="text" name="industrialized" onChange={e => setIndustrialized(e.target.value)} value={industrialized} />
+                    </label>
+                    <button class="submit-update" type='submit'> Update Region </button>
+                </form>
+            </div>
+            <br></br>
+            <button class="delete-bttn" onClick={handleDelete}> Delete Region </button>
+            <br></br>
+            <br></br>
+            <br></br>
         </>
     )
 }

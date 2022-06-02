@@ -1,12 +1,20 @@
 import React from 'react'
 import SingleRegion from './SingleRegion'
 import AddRegion from "./AddRegion";
+import { useNavigate } from "react-router-dom";
 
 
 
-function RegionsList( { regions, filteredDeletedRegion, handleNewRegion, onUpdatedRegion } ) {
+function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdatedRegion }) {
 
+  const navigate = useNavigate()
 
+  function handleClickGalaxy(e) {
+    setTimeout(() => {
+      // setEnter(!e.target.value)
+    }, 5000)
+    navigate("/")
+  }
 
   return (
     <div>
@@ -30,8 +38,12 @@ function RegionsList( { regions, filteredDeletedRegion, handleNewRegion, onUpdat
       ))}
       </h2>
       <br></br>
-      <br></br>
 
+      <button class="redirect-galaxy" onClick={handleClickGalaxy} type="galaxy">☄️ 🔥 Restart this Galaxy 🔥 ☄️</button>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 }

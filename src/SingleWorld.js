@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function SingleWorld ( { world, filteredDeletedWorld, onUpdatedWorld }) {
+function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
 
     const [name, setName] = useState(world.name_of_world);
     const [year, setYear] = useState(world.discovered_year);
@@ -21,34 +21,43 @@ function SingleWorld ( { world, filteredDeletedWorld, onUpdatedWorld }) {
             discovered_year: year
         }
         fetch(`http://localhost:9292/worlds/${world.id}`, {
-            method:'PATCH',
-            headers: {'Content-type': 'application/json'},
+            method: 'PATCH',
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(
-               updatedWorld
+                updatedWorld
             )
         }).then(resp => resp.json())
-        .then(updatedWorld => {setEditWorld(updatedWorld);
-        onUpdatedWorld(updatedWorld);});
+            .then(updatedWorld => {
+                setEditWorld(updatedWorld);
+                onUpdatedWorld(updatedWorld);
+            });
 
     }
 
     return (
         <>
+
             <div class="text-detail">
-            <h3>Name of World: {world.name_of_world}</h3>
-            <h5>Year Discovered: {world.discovered_year}</h5>
+                <h3>Name of World: {world.name_of_world}</h3>
+                <h5>Year Discovered: {world.discovered_year}</h5>
             </div>
+            <div class="form_update">
+                <form class="text-detail" onSubmit={handleUpdate}>
+                    <label>
+                        Name of World:
+                        <input class="input-name-update" type="text" name="nameOfWorld" onChange={e => setName(e.target.value)} value={name} />
+                        Year Discovered:
+                        <input class="input-year-update" type="text" name="yearDiscovered" onChange={e => setYear(e.target.value)} value={year} />
+                    </label>
+                    <button class="submit-update" type='submit'> Update World </button>
+                    <br></br>
+                </form>
+            </div>
+            <br></br>
             <button class="delete-bttn" onClick={handleDelete}> Delete World </button>
-            <form onSubmit={handleUpdate}>
-                <button type='submit'> Update World </button>
-                <br></br>
-                <label>
-                Name of World:
-                    <input type="text" name="nameOfWorld" onChange={e => setName(e.target.value)} value={name}/>
-                    Year Discovered:
-                    <input type="text" name="yearDiscovered" onChange={e => setYear(e.target.value)} value={year}/>
-                </label>
-            </form>
+            <br></br>
+            <br></br>
+            <br></br>
         </>
     )
 }

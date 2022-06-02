@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function AddRegion({handleNewRegion }) {
+function AddRegion({ handleNewRegion }) {
     const [name, setName] = useState("")
     const [chief, setChief] = useState("")
     const [weather_person, setWeatherPerson] = useState("")
@@ -9,7 +10,7 @@ function AddRegion({handleNewRegion }) {
     const [world_id, setWorldId] = useState("")
     const [industrialized, setIndustrialized] = useState("")
 
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -26,7 +27,7 @@ function AddRegion({handleNewRegion }) {
         fetch("http://localhost:9292/regions/", {
             method: "POST",
             headers: {
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(newRegion)
         })
@@ -42,29 +43,46 @@ function AddRegion({handleNewRegion }) {
     }
 
 
+    const navigate = useNavigate()
+
+    function handleClick(e) {
+        setTimeout(() => {
+            // setEnter(!e.target.value)
+        }, 5000)
+        navigate("/worlds/")
+    }
+
+
 
     return (
-        <div>
+        <div class="form-region">
             <form onSubmit={handleSubmit}>
                 <label>
                     Name of Region:
-                    <input type="text" name="nameOfRegion" onChange={e => setName(e.target.value)} value={name}/>
+                    <input class="input-name-region" type="text" name="nameOfRegion" onChange={e => setName(e.target.value)} value={name} />
                     Chief:
-                    <input type="text" name="chief" onChange={e => setChief(e.target.value)} value={chief}/>
+                    <input class="input-chief-region" type="text" name="chief" onChange={e => setChief(e.target.value)} value={chief} />
                     Weather Person:
-                    <input type="text" name="weatherperson" onChange={e => setWeatherPerson(e.target.value)} value={weather_person}/>
-                    Prominent Species:
-                    <input type="text" name="species" onChange={e => setProminentSpecies(e.target.value)} value={prominent_species}/>
+                    <input class="input-person-region" type="text" name="weatherperson" onChange={e => setWeatherPerson(e.target.value)} value={weather_person} />
+                    <br></br>
+                    <br></br>
+                    Species:
+                    <input class="input-species-region" type="text" name="species" onChange={e => setProminentSpecies(e.target.value)} value={prominent_species} />
                     Population:
-                    <input type="text" name="population" onChange={e => setPopulation(e.target.value)} value={population}/>
+                    <input class="input-pop-region" type="text" name="population" onChange={e => setPopulation(e.target.value)} value={population} />
+                    <br></br>
+                    <br></br>
                     World Id:
-                    <input type="text" name="worldid" onChange={e => setWorldId(e.target.value)} value={world_id}/>
-                    Industrialized
-                    <input type="text" name="industrialized" onChange={e => setIndustrialized(e.target.value)} value={industrialized}/>
-
+                    <input class="input-world-region" type="text" name="worldid" onChange={e => setWorldId(e.target.value)} value={world_id} />
+                    Industrialized:
+                    <input class="input-indus-region" type="text" name="industrialized" onChange={e => setIndustrialized(e.target.value)} value={industrialized} />
                 </label>
-                <button type="submit">Submit</button>
+                <button class="submit-new-region" type="submit">Submit</button>
             </form>
+            <br></br>
+            <br></br>
+            <button class="redirect-worlds" onClick={handleClick} type="worlds">🚀 Take me back to Worlds 🚀</button>
+            <br></br>
         </div>
     )
 
