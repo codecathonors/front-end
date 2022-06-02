@@ -23,6 +23,10 @@ function App() {
     setWorlds([...worlds, newWorld])
   }
 
+  const filteredDeletedWorld = (id) => {
+    setWorlds(worlds.filter(world => world.id !== id))
+  }
+
   return (
       <div>
         <Routes>
@@ -34,7 +38,7 @@ function App() {
 
         <Route 
           path="/worlds/"
-          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld}/>}
+          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld}/>}
         />
 
         {/* <Route 
