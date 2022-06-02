@@ -4,7 +4,7 @@ import AddWorld from "./AddWorld";
 // import World from './World'
 // import AddWorld from './AddWorld.js'
 
-function WorldsList({ worlds }) {
+function WorldsList({ worlds, handleNewWorld }) {
 
 
   // const onDeleteReview = (id) => {
@@ -19,7 +19,7 @@ function WorldsList({ worlds }) {
         ))}
         </h2>
         {/* <button>Add New World</button> */}
-        <AddWorld />
+        <AddWorld handleNewWorld={handleNewWorld}/>
     </div>
   )
 }
