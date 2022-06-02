@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+
 import { Routes, Route } from 'react-router-dom';
+
 import WorldsList from "./WorldsList";
 import Galaxy from "./Galaxy";
 
@@ -25,27 +27,39 @@ function App() {
     setWorlds(worlds.filter(world => world.id !== id))
   }
 
-  return (
-    <div>
-      <Routes>
+  const onUpdatedWorld = (updatedWorld) => {
+    const newUpdatedWorld = (world) => {
+      if (world.id === updatedWorld.id){
+        return updatedWorld
+      } else {
+        return world
+      }
+    }
+    setWorlds(newUpdatedWorld)
+  }
 
-        <Route
+
+  return (
+      <div>
+        <Routes>
+
+        <Route 
           path="/"
           element={<Galaxy />}
         />
 
-        <Route
+        <Route 
           path="/worlds/"
-          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld} />}
+          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld} onUpdatedWorld={onUpdatedWorld}/>}
         />
 
         {/* <Route 
           path="/worlds/"
           element={<WorldsList worlds={worlds}/>}
         /> */}
-
-      </Routes>
-    </div>
+        
+        </Routes>
+      </div>
   )
 }
 
