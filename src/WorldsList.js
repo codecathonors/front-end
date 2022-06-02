@@ -4,7 +4,7 @@ import AddWorld from "./AddWorld";
 // import World from './World'
 // import AddWorld from './AddWorld.js'
 
-function WorldsList({ worlds, handleNewWorld, filteredDeletedWorld }) {
+function WorldsList({ worlds, handleNewWorld, filteredDeletedWorld, onUpdatedWorld }) {
 
 
   // const onDeleteReview = (id) => {
@@ -24,7 +24,7 @@ function WorldsList({ worlds, handleNewWorld, filteredDeletedWorld }) {
       <br></br>
       <br></br>
       <h2 class="text_worlds">{worlds.map((world) => (
-        <SingleWorld key={world.id} world={world} filteredDeletedWorld={filteredDeletedWorld} />
+        <SingleWorld key={world.id} world={world} filteredDeletedWorld={filteredDeletedWorld} onUpdatedWorld={onUpdatedWorld} />
       ))}
       </h2>
       {/* <button>Add New World</button> */}
