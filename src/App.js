@@ -19,9 +19,9 @@ function App() {
   //   setNewWorld({name_of_world: e.target.value, discovered_year: e.target.value, galaxy_id: e.target.value})
   // }
 
-  // const handleNewWorld = (newWorld) => {
-  //   setWorlds([...worlds, newWorld])
-  // }
+  const handleNewWorld = (newWorld) => {
+    setWorlds([...worlds, newWorld])
+  }
 
   return (
       <div>
@@ -34,7 +34,7 @@ function App() {
 
         <Route 
           path="/worlds/"
-          element={<WorldsList worlds={worlds}/>}
+          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld}/>}
         />
 
         {/* <Route 

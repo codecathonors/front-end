@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
 function AddWorld({ handleNewWorld }) {
-    const [nameOfWorld, setNameOfWorld] = useState("")
-    const [discoveredYear, setDiscoveredYear] = useState("")
-    const [galaxyId, setGalaxyId] = useState(1)
+    const [name_of_world, setNameOfWorld] = useState("")
+    const [discovered_year, setDiscoveredYear] = useState("")
+    const [galaxy_id, setGalaxyId] = useState(1)
 
     
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const newWorld = {
-            nameOfWorld: nameOfWorld,
-            discoveredYear: discoveredYear,
-            galaxyId: galaxyId
+            name_of_world: name_of_world,
+            discovered_year: discovered_year,
+            galaxy_id: galaxy_id
         }
 
         fetch("http://localhost:9292/worlds/", {
@@ -40,11 +40,11 @@ function AddWorld({ handleNewWorld }) {
             <form onSubmit={handleSubmit}>
                 <label>
                     Name of World:
-                    <input type="text" name="nameOfWorld" onChange={e => setNameOfWorld(e.target.value)} value={nameOfWorld}/>
+                    <input type="text" name="nameOfWorld" onChange={e => setNameOfWorld(e.target.value)} value={name_of_world}/>
                     Year Discovered:
-                    <input type="text" name="yearDiscovered" onChange={e => setDiscoveredYear(e.target.value)} value={discoveredYear}/>
+                    <input type="text" name="yearDiscovered" onChange={e => setDiscoveredYear(e.target.value)} value={discovered_year}/>
                     Galaxy ID:
-                    <input type="text" name="GalaxyId" onChange={e => setGalaxyId(e.target.value)} value={galaxyId}/>
+                    <input type="text" name="GalaxyId" onChange={e => setGalaxyId(e.target.value)} value={galaxy_id}/>
 
                 </label>
                 <button type="submit">Submit</button>
