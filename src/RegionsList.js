@@ -3,7 +3,7 @@ import SingleRegion from './SingleRegion'
 import AddRegion from "./AddRegion";
 
 
-function RegionsList( { regions, filteredDeletedRegion, handleNewRegion } ) {
+function RegionsList({ regions, filteredDeletedRegion, handleNewRegion }) {
 
 
   return (
@@ -18,11 +18,18 @@ function RegionsList( { regions, filteredDeletedRegion, handleNewRegion } ) {
       </div>
       <br></br>
       <br></br>
+      <br></br>
+      <br></br>
+      <AddRegion handleNewRegion={handleNewRegion} />
+      <br></br>
+      <br></br>
       <h2 class="text_worlds">{regions.map((region) => (
         <SingleRegion key={region.id} region={region} filteredDeletedRegion={filteredDeletedRegion} />
       ))}
       </h2>
-      <AddRegion handleNewRegion={handleNewRegion} />
+      <br></br>
+      <br></br>
+
     </div>
   )
 }

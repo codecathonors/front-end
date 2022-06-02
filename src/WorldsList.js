@@ -23,12 +23,17 @@ function WorldsList({ worlds, handleNewWorld, filteredDeletedWorld }) {
       </div>
       <br></br>
       <br></br>
+      <br></br>
+      <br></br>
+      <AddWorld handleNewWorld={handleNewWorld} />
+      <br></br>
       <h2 class="text_worlds">{worlds.map((world) => (
         <SingleWorld key={world.id} world={world} filteredDeletedWorld={filteredDeletedWorld} />
       ))}
       </h2>
+      <br></br>
+      <br></br>
       {/* <button>Add New World</button> */}
-      <AddWorld handleNewWorld={handleNewWorld} />
     </div>
   )
 }
