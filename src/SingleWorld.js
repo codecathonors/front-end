@@ -54,7 +54,7 @@ function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
                         Year Discovered:
                         <input class="input-year-update" type="text" name="yearDiscovered" onChange={e => setYear(e.target.value)} value={year} />
                     </label>
-                    <button class="submit-update" type='submit'> Update World </button>
+                    <button class="submit-update" type='submit' onClick={refreshPage}> Update World </button>
                     <br></br>
                 </form>
             </div>

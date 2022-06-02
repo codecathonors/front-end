@@ -44,9 +44,10 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
             });
 
     }
-    // function refreshPage() {
-    //     window.location.reload(false);
-    // }
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
 
     return (
         <div>
@@ -86,7 +87,7 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
                         Industrialized
                         <input class="region-indus-update" type="text" name="industrialized" onChange={e => setIndustrialized(e.target.value)} value={industrialized} />
                     </label>
-                    <button class="submit-update" type='submit'> Update Region </button>
+                    <button class="submit-update" type='submit' onClick={refreshPage}> Update Region </button>
                 </form>
             </div>
             <br></br>
