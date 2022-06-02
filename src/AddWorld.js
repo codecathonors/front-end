@@ -5,6 +5,8 @@ function AddWorld({ handleNewWorld }) {
     const [discoveredYear, setDiscoveredYear] = useState("")
     const [galaxyId, setGalaxyId] = useState(1)
 
+    
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const newWorld = {
@@ -25,12 +27,10 @@ function AddWorld({ handleNewWorld }) {
 
         handleNewWorld(newWorld)
 
-        // setAlbumName("");
-        // setArtistName("");
-        // setComments("");
-        // setDate("");
-        // setRating("");
-        // setImage("");
+        // once this post works we can use below to clear form
+        // setNameOfWorld("");
+        // setDiscoveredYear("");
+        // setGalaxyId(1);
     }
 
 
@@ -42,7 +42,7 @@ function AddWorld({ handleNewWorld }) {
                     Name of World:
                     <input type="text" name="nameOfWorld" onChange={e => setNameOfWorld(e.target.value)} value={nameOfWorld}/>
                     Year Discovered:
-                    <input type="text" name="yearDiscovered" onChange={e => setDiscoveredYear(e.target.value)} value={nameOfWorld}/>
+                    <input type="text" name="yearDiscovered" onChange={e => setDiscoveredYear(e.target.value)} value={discoveredYear}/>
                     Galaxy ID:
                     <input type="text" name="GalaxyId" onChange={e => setGalaxyId(e.target.value)} value={galaxyId}/>
 

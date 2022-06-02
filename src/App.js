@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import WorldsList from "./WorldsList";
 import Galaxy from "./Galaxy";
-import AddWorld from "./AddWorld";
+
 
 function App() {
   const [worlds, setWorlds] = useState([]);

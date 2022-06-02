@@ -1,5 +1,6 @@
 import React from 'react'
 import SingleWorld from './SingleWorld'
+import AddWorld from "./AddWorld";
 // import World from './World'
 // import AddWorld from './AddWorld.js'
 
@@ -17,7 +18,8 @@ function WorldsList({ worlds }) {
          <SingleWorld key={world.id} world={world} />
         ))}
         </h2>
-        <button >Add New World</button>
+        {/* <button>Add New World</button> */}
+        <AddWorld />
     </div>
   )
 }
