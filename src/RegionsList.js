@@ -9,11 +9,13 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
 
   const navigate = useNavigate()
 
-  function handleClick(e) {
+
+  function handleClickGalaxy(e) {
     setTimeout(() => {
       // setEnter(!e.target.value)
     }, 5000)
-    navigate("/worlds/")
+    navigate("/")
+
   }
 
   return (
@@ -38,8 +40,13 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
       ))}
       </h2>
       <br></br>
+
+      <button class="redirect-galaxy" onClick={handleClickGalaxy} type="galaxy">☄️ 🔥 Restart this Galaxy 🔥 ☄️</button>
       <br></br>
-      <button class="button" onClick={handleClick}>🚀 Take me back 🚀</button>
+      <br></br>
+      <br></br>
+      <br></br>
+
     </div>
   )
 }

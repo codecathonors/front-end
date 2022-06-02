@@ -40,21 +40,30 @@ function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
 
     return (
         <>
+
             <div class="text-detail">
                 <h3>Name of World: {world.name_of_world}</h3>
                 <h5>Year Discovered: {world.discovered_year}</h5>
+
             </div>
+            <div class="form_update">
+                <form class="text-detail" onSubmit={handleUpdate}>
+                    <label>
+                        Name of World:
+                        <input class="input-name-update" type="text" name="nameOfWorld" onChange={e => setName(e.target.value)} value={name} />
+                        Year Discovered:
+                        <input class="input-year-update" type="text" name="yearDiscovered" onChange={e => setYear(e.target.value)} value={year} />
+                    </label>
+                    <button class="submit-update" type='submit'> Update World </button>
+                    <br></br>
+                </form>
+            </div>
+            <br></br>
             <button class="delete-bttn" onClick={handleDelete}> Delete World </button>
-            <form onSubmit={handleUpdate}>
-                <button onClick={refreshPage} type='submit'> Update World </button>
-                <br></br>
-                <label>
-                    Name of World:
-                    <input type="text" name="nameOfWorld" onChange={e => setName(e.target.value)} value={name} />
-                    Year Discovered:
-                    <input type="text" name="yearDiscovered" onChange={e => setYear(e.target.value)} value={year} />
-                </label>
-            </form>
+            <br></br>
+            <br></br>
+            <br></br>
+
         </>
     )
 }
