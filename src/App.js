@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+
 import { Routes, Route } from 'react-router-dom';
+
 import WorldsList from "./WorldsList";
 import Galaxy from "./Galaxy";
 import RegionsList from "./RegionsList";
@@ -33,31 +35,54 @@ function App() {
     setWorlds(worlds.filter(world => world.id !== id))
   }
 
+  const onUpdatedWorld = (updatedWorld) => {
+    const newUpdatedWorld = (world) => {
+      if (world.id === updatedWorld.id){
+        return updatedWorld
+      } else {
+        return world
+      }
+    }
+    setWorlds(newUpdatedWorld)
+  }
+
+  const onUpdatedRegion = (updatedRegion) => {
+    const newUpdatedRegion = (region) => {
+      if (region.id === updatedRegion.id){
+        return updatedRegion
+      } else {
+        return region
+      }
+    }
+    setRegions(newUpdatedRegion)
+  }
+
   const filteredDeletedRegion = (id) => {
     setRegions(regions.filter(region => region.id !== id))
   }
 
   return (
-    <div>
-      <Routes>
+      <div>
+        <Routes>
 
-        <Route
+        <Route 
           path="/"
           element={<Galaxy />}
         />
 
-        <Route
+        <Route 
           path="/worlds/"
-          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld} />}
+          element={<WorldsList worlds={worlds} handleNewWorld={handleNewWorld} filteredDeletedWorld={filteredDeletedWorld} onUpdatedWorld={onUpdatedWorld}/>}
         />
 
         <Route
           path="/regions/"
-          element={<RegionsList regions={regions} filteredDeletedRegion={filteredDeletedRegion} handleNewRegion={handleNewRegion} />}
+          element={<RegionsList regions={regions} filteredDeletedRegion={filteredDeletedRegion} handleNewRegion={handleNewRegion} onUpdatedRegion={onUpdatedRegion} />}
         />
 
       </Routes>
     </div>
+
   )
 }
 
