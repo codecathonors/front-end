@@ -1,12 +1,20 @@
 import React from 'react'
 import SingleRegion from './SingleRegion'
 import AddRegion from "./AddRegion";
+import { useNavigate } from "react-router-dom";
 
 
 
-function RegionsList( { regions, filteredDeletedRegion, handleNewRegion, onUpdatedRegion } ) {
+function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdatedRegion }) {
 
+  const navigate = useNavigate()
 
+  function handleClick(e) {
+    setTimeout(() => {
+      // setEnter(!e.target.value)
+    }, 5000)
+    navigate("/worlds/")
+  }
 
   return (
     <div>
@@ -31,7 +39,7 @@ function RegionsList( { regions, filteredDeletedRegion, handleNewRegion, onUpdat
       </h2>
       <br></br>
       <br></br>
-
+      <button class="button" onClick={handleClick}>🚀 Take me back 🚀</button>
     </div>
   )
 }
