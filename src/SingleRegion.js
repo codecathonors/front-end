@@ -21,7 +21,7 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
     }
 
     const handleUpdate = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const updatedRegion = {
             name: name,
             chief: chief,
@@ -43,10 +43,10 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
                 onUpdatedRegion(updatedRegion);
             });
 
+
+    function refreshPage() {
+        window.location.reload(false);
     }
-
-
-
 
     return (
         <>
@@ -62,6 +62,7 @@ function SingleRegion({ region, filteredDeletedRegion, onUpdatedRegion }) {
                 {/* <p>Industrialized: {region.industrialized}</p> */}
                 <p>Industrialized: {String(region.industrialized)}</p>
                 <br></br>
+
             </div>
             <div class="form-region-update">
                 <form onSubmit={handleUpdate}>

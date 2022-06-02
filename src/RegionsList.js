@@ -9,11 +9,13 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
 
   const navigate = useNavigate()
 
+
   function handleClickGalaxy(e) {
     setTimeout(() => {
       // setEnter(!e.target.value)
     }, 5000)
     navigate("/")
+
   }
 
   return (
@@ -44,6 +46,7 @@ function RegionsList({ regions, filteredDeletedRegion, handleNewRegion, onUpdate
       <br></br>
       <br></br>
       <br></br>
+
     </div>
   )
 }

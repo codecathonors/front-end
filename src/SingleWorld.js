@@ -15,7 +15,7 @@ function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
     }
 
     const handleUpdate = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const updatedWorld = {
             name_of_world: name,
             discovered_year: year
@@ -34,12 +34,17 @@ function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
 
     }
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <>
 
             <div class="text-detail">
                 <h3>Name of World: {world.name_of_world}</h3>
                 <h5>Year Discovered: {world.discovered_year}</h5>
+
             </div>
             <div class="form_update">
                 <form class="text-detail" onSubmit={handleUpdate}>
@@ -58,6 +63,7 @@ function SingleWorld({ world, filteredDeletedWorld, onUpdatedWorld }) {
             <br></br>
             <br></br>
             <br></br>
+
         </>
     )
 }
