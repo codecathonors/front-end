@@ -13,13 +13,22 @@ function WorldsList({ worlds, handleNewWorld, filteredDeletedWorld }) {
 
   return (
     <div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div id="container">
         <h1>List of Worlds</h1>
-        <h2>{worlds.map((world) => (
-         <SingleWorld key={world.id} world={world} filteredDeletedWorld={filteredDeletedWorld}/>
-        ))}
-        </h2>
-        {/* <button>Add New World</button> */}
-        <AddWorld handleNewWorld={handleNewWorld}/>
+        <h1>List of Worlds</h1>
+        <h1>List of Worlds</h1>
+      </div>
+      <br></br>
+      <br></br>
+      <h2 class="text_worlds">{worlds.map((world) => (
+        <SingleWorld key={world.id} world={world} filteredDeletedWorld={filteredDeletedWorld} />
+      ))}
+      </h2>
+      {/* <button>Add New World</button> */}
+      <AddWorld handleNewWorld={handleNewWorld} />
     </div>
   )
 }
